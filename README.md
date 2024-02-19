@@ -35,7 +35,7 @@ Verifies if a student has a certification.
 #### Response body
 
 ```json
-	Usuário pode fazer a prova
+Usuário pode fazer a prova
 ```
 
 or
