@@ -7,15 +7,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import tech.juliamendesc.certification_nlw.modules.students.entities.CertificationsStudentEntity;
+import tech.juliamendesc.certification_nlw.modules.students.entities.CertificationStudentEntity;
 
 @Repository
-public interface CertificationStudentRepository extends JpaRepository<CertificationsStudentEntity, UUID> {
+public interface CertificationStudentRepository extends JpaRepository<CertificationStudentEntity, UUID> {
 
     @Query("SELECT c FROM certifications c INNER JOIN c.studentEntity std WHERE std.email = :email AND c.technology = :technology")
-    List<CertificationsStudentEntity> findByStudentEmailAndTechnology(String email, String technology);
+    List<CertificationStudentEntity> findByStudentEmailAndTechnology(String email, String technology);
 
     @Query("SELECT c from certifications c ORDER BY c.grade DESC LIMIT 10")
-    List<CertificationsStudentEntity> findTop10ByOrderByGradeDesc();
+    List<CertificationStudentEntity> findTop10ByOrderByGradeDesc();
 
 }
